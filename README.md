@@ -1,1 +1,0 @@
-# school17.goroo-orsha
