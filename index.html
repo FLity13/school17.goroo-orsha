@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа №17 - Орша</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .light-theme {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .dark-theme {
+            background-color: #1a1a1a; /* Темнее, но не черный */
+            color: #f4f4f9;
+        }
+        header {
+            position: relative;
+            background-image: url('https://avatars.mds.yandex.net/get-altay/239474/2a0000015f1add50de03907ed92441ec739f/orig');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #555;
+            align-items: center;
+            padding: 10px 0;
+        }
+        nav a, .theme-toggle, .auth-button {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+        nav a:hover, .auth-button:hover {
+            background-color: #777;
+        }
+        .theme-toggle {
+            font-size: 20px;
+            margin-left: 20px;
+        }
+        .auth-button {
+            border: 2px solid white;
+            border-radius: 20px;
+            margin-left: 20px;
+            padding: 10px 20px;
+        }
+        .light-theme .auth-button {
+            border-color: #333;
+        }
+        .dark-theme .auth-button {
+            border-color: #f4f4f9;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .container h2 {
+            margin-top: 30px;
+            font-size: 24px;
+        }
+        .container p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer .contacts {
+            text-align: left;
+        }
+        footer .rights {
+            text-align: right;
+        }
+        footer .separator {
+            border-left: 1px solid white;
+            height: 30px;
+            margin: 0 10px;
+        }
+        .schedule-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="light-theme">
+
+<nav>
+    <a href="#about">О школе</a>
+    <a href="#news">Новости</a>
+    <a href="#schedule">Расписание</a>
+    <a href="#contacts">Контакты</a>
+    <span class="theme-toggle" onclick="toggleTheme()">☀️</span>
+    <a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" class="auth-button">Регистрация / Вход</a>
+</nav>
+
+<header>
+    <h1>Школа №17 - Орша</h1>
+    <p>Добро пожаловать на наш сайт!</p>
+</header>
+
+<div class="container">
+    <section id="news">
+        <h2>Новости и события</h2>
+        <p>Последние новости нашей школы...</p>
+    </section>
+
+    <section id="schedule">
+        <h2>Расписание занятий</h2>
+        <img src="https://via.placeholder.com/600x400" alt="Фото расписания" class="schedule-image">
+    </section>
+</div>
+
+<footer>
+    <div class="contacts">
+        <p>Адрес: ул. Тараса Шевченко 46</p>
+        <p>Телефон: +375 (216) 51-30-81</p>
+        <p>Email: school17@goroo-orsha.by</p>
+    </div>
+    <div class="separator"></div>
+    <div class="rights">
+        <p><a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" style="color: white; text-decoration: underline;">2024 г., Школа №17. Все права защищены *</a></p>
+    </div>
+</footer>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const themeToggle = document.querySelector('.theme-toggle');
+        
+        body.classList.toggle('dark-theme');
+        body.classList.toggle('light-theme');
+
+        // Меняем иконку темы
+        if (body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '🌙'; // Иконка луны
+        } else {
+            themeToggle.textContent = '☀️'; // Иконка солнца
+        }
+    }
+</script>
+
+</body>
+</html>
