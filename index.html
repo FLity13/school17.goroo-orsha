@@ -12,10 +12,6 @@
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
         }
-        .light-theme {
-            background-color: #f4f4f9;
-            color: #333;
-        }
         .dark-theme {
             background-color: #1a1a1a; /* Темнее, но не черный */
             color: #f4f4f9;
@@ -70,12 +66,6 @@
             margin-left: 20px;
             padding: 10px 20px;
         }
-        .light-theme .auth-button {
-            border-color: #333;
-        }
-        .dark-theme .auth-button {
-            border-color: #f4f4f9;
-        }
         .container {
             padding: 20px;
             text-align: center;
@@ -89,6 +79,14 @@
             max-width: 600px;
             margin: 0 auto;
         }
+        .container section {
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .container section:last-child {
+            border-bottom: none;
+        }
         footer {
             background-color: #000;
             color: #fff;
@@ -98,22 +96,28 @@
             bottom: 0;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
         footer p {
             margin: 0;
         }
-        footer .contacts {
-            text-align: left;
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
-        footer .rights {
-            text-align: right;
+        .contacts {
+            margin-right: 20px;
         }
-        footer .separator {
+        .separator {
             border-left: 1px solid white;
-            height: 30px;
-            margin: 0 10px;
+            height: 100%;
+            margin: 0 20px;
+        }
+        .rights {
+            margin-left: 20px;
         }
         .schedule-image {
             width: 100%;
@@ -122,64 +126,120 @@
             margin: 0 auto;
             display: block;
         }
+
+        /* Add this to make the page responsive for mobile devices */
+        @media only screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a, .theme-toggle, .auth-button {
+                padding: 10px;
+                margin: 10px 0;
+            }
+            header {
+                background-size: cover;
+                background-position: center;
+                height: 200px;
+            }
+            .container {
+                padding: 20px;
+                width: 100%;
+            }
+            footer {
+                flex-direction: column;
+                align-items: center;
+            }
+            footer .contacts, footer .rights {
+                text-align: center;
+            }
+            footer .separator {
+                display: none;
+            }
+        }
     </style>
 </head>
-<body class="light-theme">
+<body class="dark-theme">
 
-<nav>
-    <a href="#about">О школе</a>
-    <a href="#news">Новости</a>
-    <a href="#schedule">Расписание</a>
-    <a href="#contacts">Контакты</a>
-    <span class="theme-toggle" onclick="toggleTheme()">☀️</span>
-    <a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" class="auth-button">Регистрация / Вход</a>
-</nav>
-
-<header>
-    <h1>Школа №17 - Орша</h1>
-    <p>Добро пожаловать на наш сайт!</p>
-</header>
-
-<div class="container">
-    <section id="news">
-        <h2>Новости и события</h2>
-        <p>Последние новости нашей школы...</p>
-    </section>
-
-    <section id="schedule">
-        <h2>Расписание занятий</h2>
-        <img src="https://via.placeholder.com/600x400" alt="Фото расписания" class="schedule-image">
-    </section>
-</div>
-
-<footer>
-    <div class="contacts">
-        <p>Адрес: ул. Тараса Шевченко 46</p>
-        <p>Телефон: +375 (216) 51-30-81</p>
-        <p>Email: school17@goroo-orsha.by</p>
+    <nav>
+        <a href="https://maps.app.goo.gl/EYHiaUe6v6rK1ofS8">О школе</a>
+        <a href="#news">Новости</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#contacts">Контакты</a>
+        <span class="theme-toggle" onclick="toggleTheme()">☀️</span>
+        <a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" class="auth-button">Регистрация / Вход</a>
+    </nav>
+    
+    <header>
+        <h1>Школа №17 - Орша</h1>
+        <p>Добро пожаловать на наш сайт!</p>
+    </header>
+    
+    <div class="container">
+        <section id="schedule">
+            <h2>Расписание занятий на сегодня</h2>
+            <img src="https://raw.githubusercontent.com/FLity13/school17.goroo-orsha/refs/heads/indexs/photo_2024-10-07_19-30-01.jpg" alt="Фото расписания" class="schedule-image">
+        </section>
+    
+        <section id="news">
+            <h2>Новости и события</h2>
+            <p>Упсс! Что-то пошло не так :(</p>
+        </section>
     </div>
-    <div class="separator"></div>
-    <div class="rights">
-        <p><a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" style="color: white; text-decoration: underline;">2024 г., Школа №17. Все права защищены *</a></p>
-    </div>
-</footer>
-
-<script>
-    function toggleTheme() {
-        const body = document.body;
-        const themeToggle = document.querySelector('.theme-toggle');
-        
-        body.classList.toggle('dark-theme');
-        body.classList.toggle('light-theme');
-
-        // Меняем иконку темы
-        if (body.classList.contains('dark-theme')) {
-            themeToggle.textContent = '🌙'; // Иконка луны
-        } else {
-            themeToggle.textContent = '☀️'; // Иконка солнца
+    
+    <footer>
+        <div class="footer-container">
+            <div class="contacts">
+                <p>Адрес: ул. Тараса Шевченко 46</p>
+                <p>Телефон: +375 (216) 51-30-81</p>
+                <p>Email: school17@goroo-orsha.by</p>
+            </div>
+            <div class="separator"></div>
+            <div class="rights">
+                <p><a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" style="color: white; text-decoration: underline;">2024 г., Школа №17. Все права защищены *</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+    
+            // Меняем иконку темы
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '🌙'; // Иконка луны
+            } else {
+                themeToggle.textContent = '☀️'; // Иконка солнца
+            }
         }
-    }
-</script>
-
-</body>
-</html>
+    
+        document.addEventListener("DOMContentLoaded", function() {
+          const toolbarButtons = document.querySelectorAll("nav a, .theme-toggle, .auth-button");
+    
+          toolbarButtons.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+              event.preventDefault();
+              const buttonText = button.textContent.trim();
+    
+              if (buttonText === "Контакты") {
+                const link = "https://maps.app.goo.gl/EYHiaUe6v6rK1ofS8";
+                const text = "Адрес: ул. Тараса Шевченко 46\nТелефон: +375 (216) 51-30-81\nEmail: school17@goroo-orsha.by";
+                alert(text);
+              } else if (buttonText === "Расписание") {
+                window.open("https://raw.githubusercontent.com/FLity13/school17.goroo-orsha/refs/heads/indexs/photo_2024-10-07_19-30-01.jpg", "_blank");
+              } else if (buttonText === "Новости") {
+                window.open("#news", "_self");
+              } else if (buttonText === "О школе") {
+                window.open("https://maps.app.goo.gl/EYHiaUe6v6rK1ofS8", "_self");
+              }
+            });
+          });
+        });
+    </script>
+    
+    </body>
+    </html>
