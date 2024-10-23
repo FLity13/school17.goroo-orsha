@@ -3,111 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Школьный сайт</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        nav {
-            margin: 10px 0;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        .photo {
-            background-image: url('https://example.com/photo.jpg'); /* Замените на вашу ссылку */
-            background-size: cover;
-            height: 200px;
-            opacity: 0.7;
-            margin: 10px 0;
-        }
-        .content {
-            padding: 20px;
-        }
-        .section {
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            margin: 20px 0;
-            padding: 10px 0;
-        }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        @media (max-width: 600px) {
-            nav a {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-    </style>
+    <title>Школа</title>
+    <link rel="stylesheet" href="view.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#honor-board">Доска почёта</a></li>
+                <li><a href="https://example.com">Регистрация/Вход</a></li>
+            </ul>
+        </nav>
+        <div class="header-image">
+            <a href="#">
+                <img src="https://via.placeholder.com/800x200" alt="School" class="toned-image">
+            </a>
+        </div>
+    </header>
 
-<header>
-    <nav>
-        <a href="#contacts">Контакты</a>
-        <a href="#psychologist">Психолог</a>
-        <a href="#honor-board" onclick="openYouTube()">Доска почёта</a>
-        <a href="#login" onclick="openYouTube()">Регистрация/Вход</a>
-    </nav>
-    <div class="photo"></div>
-</header>
+    <main>
+        <section id="honor-board">
+            <h2>Доска почёта</h2>
+            <div class="carousel">
+                <button id="prev-honor">&#8249;</button>
+                <div id="honor-card" class="card"></div>
+                <button id="next-honor">&#8250;</button>
+            </div>
+        </section>
 
-<main class="content">
-    <section id="honor-board" class="section">
-        <h2>Доска почёта</h2>
-        <a href="https://example.com/photo1.jpg">Фото 1</a><br>
-        <a href="https://example.com/photo2.jpg">Фото 2</a><br>
-        <a href="https://example.com/photo3.jpg">Фото 3</a><br>
-        <p>Описание доски почёта.</p>
-    </section>
+        <hr>
 
-    <section id="news" class="section">
-        <h2>Новости школы</h2>
-        <div id="news-content"></div>
-    </section>
-</main>
+        <section id="news">
+            <h2>Новости школы</h2>
+            <div class="carousel">
+                <button id="prev-news">&#8249;</button>
+                <div id="news-card" class="card"></div>
+                <button id="next-news">&#8250;</button>
+            </div>
+        </section>
+    </main>
 
-<footer>
-    <div id="contacts">Контакты</div>
-    <p>Все права защищены ©</p>
-</footer>
+    <footer>
+        <section id="contacts">
+            <button onclick="window.open('https://www.youtube.com/', '_blank')">Контакты</button>
+            <p>Все права защищены *</p>
+        </section>
+    </footer>
 
-<script>
-    function openYouTube() {
-        window.open('https://www.youtube.com', '_blank');
-    }
-
-    // Загрузка новостей из JSON
-    fetch('news.json')
-        .then(response => response.json())
-        .then(data => {
-            const newsContent = document.getElementById('news-content');
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.innerHTML = `
-                    <h3>${item.title}</h3>
-                    <img src="${item.image}" alt="${item.title}" style="width:100%;">
-                    <p>${item.description}</p>
-                `;
-                newsContent.appendChild(card);
-            });
-        })
-        .catch(error => console.error('Ошибка:', error));
-</script>
-
+    <script src="code.js"></script>
 </body>
 </html>
