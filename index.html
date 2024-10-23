@@ -3,243 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Школа №17 - Орша</title>
+    <title>Школьный сайт</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .dark-theme {
-            background-color: #1a1a1a; /* Темнее, но не черный */
-            color: #f4f4f9;
         }
         header {
-            position: relative;
-            background-image: url('https://avatars.mds.yandex.net/get-altay/239474/2a0000015f1add50de03907ed92441ec739f/orig');
-            background-size: cover;
-            background-position: center;
+            background-color: #4CAF50;
             color: white;
+            padding: 10px;
             text-align: center;
-            padding: 60px 0;
-        }
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        header h1, header p {
-            position: relative;
-            z-index: 2;
         }
         nav {
-            display: flex;
-            justify-content: center;
-            background-color: #555;
-            align-items: center;
+            margin: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .photo {
+            background-image: url('https://example.com/photo.jpg'); /* Замените на вашу ссылку */
+            background-size: cover;
+            height: 200px;
+            opacity: 0.7;
+            margin: 10px 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .section {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin: 20px 0;
             padding: 10px 0;
         }
-        nav a, .theme-toggle, .auth-button {
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            text-align: center;
-            cursor: pointer;
-        }
-        nav a:hover, .auth-button:hover {
-            background-color: #777;
-        }
-        .theme-toggle {
-            font-size: 20px;
-            margin-left: 20px;
-        }
-        .auth-button {
-            border: 2px solid white;
-            border-radius: 20px;
-            margin-left: 20px;
-            padding: 10px 20px;
-        }
-        .container {
-            padding: 20px;
-            text-align: center;
-        }
-        .container h2 {
-            margin-top: 30px;
-            font-size: 24px;
-        }
-        .container p {
-            font-size: 16px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .container section {
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-        .container section:last-child {
-            border-bottom: none;
-        }
         footer {
-            background-color: #000;
-            color: #fff;
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
-            padding: 10px 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 10px;
         }
-        footer p {
-            margin: 0;
-        }
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-        .contacts {
-            margin-right: 20px;
-        }
-        .separator {
-            border-left: 1px solid white;
-            height: 100%;
-            margin: 0 20px;
-        }
-        .rights {
-            margin-left: 20px;
-        }
-        .schedule-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-        }
-
-        /* Add this to make the page responsive for mobile devices */
-        @media only screen and (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav a, .theme-toggle, .auth-button {
-                padding: 10px;
-                margin: 10px 0;
-            }
-            header {
-                background-size: cover;
-                background-position: center;
-                height: 200px;
-            }
-            .container {
-                padding: 20px;
-                width: 100%;
-            }
-            footer {
-                flex-direction: column;
-                align-items: center;
-            }
-            footer .contacts, footer .rights {
-                text-align: center;
-            }
-            footer .separator {
-                display: none;
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 5px 0;
             }
         }
     </style>
 </head>
-<body class="dark-theme">
+<body>
 
+<header>
     <nav>
-        <a href="https://maps.app.goo.gl/EYHiaUe6v6rK1ofS8">О школе</a>
-        <a href="#news">Новости</a>
-        <a href="#schedule">Расписание</a>
         <a href="#contacts">Контакты</a>
-        <span class="theme-toggle" onclick="toggleTheme()">☀️</span>
-        <a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" class="auth-button">Регистрация / Вход</a>
+        <a href="#psychologist">Психолог</a>
+        <a href="#honor-board" onclick="openYouTube()">Доска почёта</a>
+        <a href="#login" onclick="openYouTube()">Регистрация/Вход</a>
     </nav>
-    
-    <header>
-        <h1>Школа №17 - Орша</h1>
-        <p>Добро пожаловать на наш сайт!</p>
-    </header>
-    
-    <div class="container">
-        <section id="schedule">
-            <h2>Расписание занятий на сегодня</h2>
-            <img src="https://raw.githubusercontent.com/FLity13/school17.goroo-orsha/refs/heads/indexs/photo_2024-10-07_19-30-01.jpg" alt="Фото расписания" class="schedule-image">
-        </section>
-    
-        <section id="news">
-            <h2>Новости и события</h2>
-            <p>Упсс! Что-то пошло не так :(</p>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="footer-container">
-            <div class="contacts">
-                <p>Адрес: ул. Тараса Шевченко 46</p>
-                <p>Телефон: +375 (216) 51-30-81</p>
-                <p>Email: school17@goroo-orsha.by</p>
-            </div>
-            <div class="separator"></div>
-            <div class="rights">
-                <p><a href="https://youtu.be/dQw4w9WgXcQ?si=ZGA9uMv685bb57JL" style="color: white; text-decoration: underline;">2024 г., Школа №17. Все права защищены *</a></p>
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const themeToggle = document.querySelector('.theme-toggle');
-            
-            body.classList.toggle('dark-theme');
-            body.classList.toggle('light-theme');
-    
-            // Меняем иконку темы
-            if (body.classList.contains('dark-theme')) {
-                themeToggle.textContent = '🌙'; // Иконка луны
-            } else {
-                themeToggle.textContent = '☀️'; // Иконка солнца
-            }
-        }
-    
-        document.addEventListener("DOMContentLoaded", function() {
-          const toolbarButtons = document.querySelectorAll("nav a, .theme-toggle, .auth-button");
-    
-          toolbarButtons.forEach(function(button) {
-            button.addEventListener("click", function(event) {
-              event.preventDefault();
-              const buttonText = button.textContent.trim();
-    
-              if (buttonText === "Контакты") {
-                const link = "https://maps.app.goo.gl/EYHiaUe6v6rK1ofS8";
-                const text = "Адрес: ул. Тараса Шевченко 46\nТелефон: +375 (216) 51-30-81\nEmail: school17@goroo-orsha.by";
-                alert(text);
-              } else if (buttonText === "Расписание") {
-                window.open("https://raw.githubusercontent.com/FLity13/school17.goroo-orsha/refs/heads/indexs/photo_2024-10-07_19-30-01.jpg", "_blank");
-              } else if (buttonText === "Новости") {
-                window.open("#news", "_self");
-              } else if (buttonText === "О школе") {
-                window.open("https://maps.app.goo.gl/EYHiaUe6v6rK1ofS8", "_self");
-              }
+    <div class="photo"></div>
+</header>
+
+<main class="content">
+    <section id="honor-board" class="section">
+        <h2>Доска почёта</h2>
+        <a href="https://example.com/photo1.jpg">Фото 1</a><br>
+        <a href="https://example.com/photo2.jpg">Фото 2</a><br>
+        <a href="https://example.com/photo3.jpg">Фото 3</a><br>
+        <p>Описание доски почёта.</p>
+    </section>
+
+    <section id="news" class="section">
+        <h2>Новости школы</h2>
+        <div id="news-content"></div>
+    </section>
+</main>
+
+<footer>
+    <div id="contacts">Контакты</div>
+    <p>Все права защищены ©</p>
+</footer>
+
+<script>
+    function openYouTube() {
+        window.open('https://www.youtube.com', '_blank');
+    }
+
+    // Загрузка новостей из JSON
+    fetch('news.json')
+        .then(response => response.json())
+        .then(data => {
+            const newsContent = document.getElementById('news-content');
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <img src="${item.image}" alt="${item.title}" style="width:100%;">
+                    <p>${item.description}</p>
+                `;
+                newsContent.appendChild(card);
             });
-          });
-        });
-    </script>
-    
-    </body>
-    </html>
+        })
+        .catch(error => console.error('Ошибка:', error));
+</script>
+
+</body>
+</html>
